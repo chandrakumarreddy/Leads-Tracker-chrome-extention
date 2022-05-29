@@ -2,6 +2,7 @@
   "manifest_version": 3,
   "version": "0.1",
   "name": "Leads Tracker",
+  "description": "Extention to save leads",
   "action": {
     "default_popup": "index.html",
     "default_icon": "icon.png"
