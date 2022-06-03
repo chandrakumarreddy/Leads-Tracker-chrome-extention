@@ -18,13 +18,17 @@ input {
   max-width: 400px;
 }
 
+input[disabled="true"] {
+  cursor: not-allowed;
+}
+
 #input-btn,
 #delete-btn,
 #save-tab-btn {
   background-color: #5f9341;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 0;
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
@@ -45,4 +49,29 @@ input {
 }
 a {
   color: #5f9341;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+#delete-item {
+  all: unset;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 8px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li > * {
+  font-size: 12px;
+  line-height: 16px;
 }
