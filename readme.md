@@ -2,7 +2,8 @@
 
 ##### preview
 
-![preview](https://raw.githubusercontent.com/chandrakumarreddy/Leads-Tracker-chrome-extention/master/preview.png)
+![extention preview](https://raw.githubusercontent.com/chandrakumarreddy/Leads-Tracker-chrome-extention/master/preview.png)
+
 
 ## Features
 
