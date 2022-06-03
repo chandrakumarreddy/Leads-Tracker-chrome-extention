@@ -2,6 +2,8 @@
 
 ##### preview
 
+![preview](https://raw.githubusercontent.com/chandrakumarreddy/Leads-Tracker-chrome-extention/master/preview.png)
+
 ## Features
 
 1. save active tab url
