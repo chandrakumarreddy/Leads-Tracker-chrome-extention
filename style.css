@@ -4,13 +4,20 @@
   padding: 0;
 }
 
+:root {
+  --bg-color: #fff;
+  --color-success: #5f9341;
+  --error-color: #ff5872;
+}
+
 body {
   padding: 1rem;
   min-width: 400px;
+  background-color: var(--bg-color);
 }
 
 input {
-  border: 1px solid #5f9341;
+  border: 1px solid var(--color-success);
   padding: 10px;
   width: 100%;
   margin-bottom: 4px;
@@ -25,7 +32,7 @@ input[disabled="true"] {
 #input-btn,
 #delete-btn,
 #save-tab-btn {
-  background-color: #5f9341;
+  background-color: var(--color-success);
   color: #fff;
   border: none;
   padding: 10px 0;
@@ -34,9 +41,9 @@ input[disabled="true"] {
   font-weight: bold;
 }
 #delete-btn {
-  background-color: #fff;
+  background-color: var(--bg-color);
   color: #5f9341;
-  border: 1px solid #5f9341;
+  border: 1px solid var(--color-success);
 }
 
 #ul-el {
@@ -74,4 +81,14 @@ a {
 li > * {
   font-size: 12px;
   line-height: 16px;
+}
+
+.error-exits {
+  color: var(--error-color);
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 500;
+  margin-top: 4px;
+  text-transform: capitalize;
+  display: none;
 }

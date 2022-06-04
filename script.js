@@ -6,6 +6,7 @@ const ulElem = document.getElementById("ul-el");
 const deleteElem = document.getElementById("delete-btn");
 const saveTabBtn = document.getElementById("save-tab-btn");
 const deleteItemElem = document.getElementById("delete-item");
+const errorExistsElem = document.getElementById("error-exits");
 
 inputBtn.onclick = saveLead;
 
@@ -19,13 +20,31 @@ function deleteAll() {
   renderLeads(myLeads);
 }
 
+function hideErrorMessage() {
+  errorExistsElem.style.display = "none";
+  duplicateIndex = undefined;
+}
+
+function showErrorMessage(index) {
+  errorExistsElem.style.display = "block";
+  duplicateIndex = index;
+}
+
+let duplicateIndex;
+
 function saveTab() {
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
     const tab = tabs[0];
     const domain = tab.url.replace(/.+\/\/|www.|\..+/g, "");
-    myLeads.push(`${domain}%${tab.title}%${tab.url}`);
-    localStorage.setItem("myLeads", JSON.stringify(myLeads));
-    renderLeads(myLeads);
+    const lead = `${domain}%${tab.title}%${tab.url}`;
+    if (!myLeads.includes(lead)) {
+      hideErrorMessage();
+      myLeads.push(lead);
+      localStorage.setItem("myLeads", JSON.stringify(myLeads));
+      renderLeads(myLeads);
+    } else {
+      showErrorMessage(myLeads.indexOf(lead));
+    }
   });
 }
 
@@ -54,6 +73,9 @@ function createItem(lead, index) {
     let leads = JSON.parse(localStorage.getItem("myLeads"));
     leads = [...leads.slice(0, index), ...leads.slice(index + 1)];
     localStorage.setItem("myLeads", JSON.stringify(leads));
+    if (duplicateIndex === index) {
+      hideErrorMessage();
+    }
   });
   const div = document.createElement("div");
   const a = document.createElement("a");
